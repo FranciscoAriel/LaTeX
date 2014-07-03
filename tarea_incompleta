@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsthm}
+\usepackage{amsfonts}
+\author{Francisco Ariel Vázquez Chávez}
+\title{Tarea 5}
+\date{\today{}}
+%\numberwithin{equation}{section}
+\parindent=0mm
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\maketitle
+
+La función generadora de momentos de $ \mathbf{x^{'}Ax} $ es:
+\begin{align}
+m_{\mathbf{x^{'}Ax}}=E\left ( e^{t\mathbf{x^{'}Ax}} \right )
+\end{align}
+Aplicando la definición de esperanza se tiene que:
+\begin{equation}
+m_{\mathbf{x^{'}Ax}}=E\left ( e^{t\mathbf{x^{'}Ax}} \right )  =\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}e^{t\mathbf{x^{'}Ax}}\frac{1}{\sqrt{2\pi}^p\left | \Sigma \right |^{1/2}}e^{\frac{-\left ( \mathbf{x}-\mathbf{\mu} \right )^{'}\Sigma^{-1}\left ( \mathbf{x}-\mathbf{\mu} \right )}{2}}d\mathbf{x}
+\end{equation}
+Obsérvese que $d\mathbf{x}=dx_1,dx_2,\cdots dx_p$. Haciendo $c_1=\frac{1}{\sqrt{2\pi}^p\left | \Sigma \right |^{1/2}}$, se saca de la integral ya que no depende de $\mathbf{x}$
+\end{document}

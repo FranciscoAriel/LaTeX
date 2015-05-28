@@ -1,0 +1,131 @@
+% !TeX root = Principal.tex
+% !TeX encoding = ISO-8859-1
+\documentclass[oneside,12pt]{book}                              %%Voy a imprimir las hojas por un solo lado, letras tamaño 12
+\usepackage[hang,small,bf]{caption}                             %%Títulos de las figuras
+\usepackage{subfig}                                             %%Poner juntas dos o más figuras
+\usepackage{fancyhdr}                                           %%Encabezados perrones
+\usepackage{amssymb}                                            %%Símbolos de la AMS
+\usepackage[latin1]{inputenc}                                   %%Poner acentos, ñ, etc.
+\usepackage{amsfonts}                                           %%Fuentes de la AMS
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{lscape}                                              %%Para poder poner paginas volteadas
+\usepackage[sort,round,comma]{natbib}                            %%Para citas
+\usepackage{longtable}                                           %%Para Tablas largas
+\usepackage{multirow}                                            %%Para unir filas en Tablas
+\usepackage{geometry}                                            %%Geometría de la página
+\usepackage{pdfpages}                                            %%Insertar documentos completos en pdf, solo funciona con pdflatex
+\usepackage{setspace}                                            %%Espacios entre figuras, Tablas y sus leyendas
+\usepackage{float}                                               %%Permite forzar el lugar donde aparecen las Tablas, figuras y hacer otros trucos
+\usepackage{listings}                                            %%Listados de programas en C++, C, R, etc....
+\usepackage{hyperref}                                            %%Ligas en citas, referencias a fórmulas, url, etc.
+\hypersetup{pdftitle=Título de la tesis,
+            pdfauthor=Autor,
+            pdfsubject=Tesis de maestría,
+            colorlinks,
+            citecolor=blue,
+            filecolor=blue,
+            linkcolor=blue,
+            urlcolor=blue} %Necesario para facilitar lectura
+%%\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black} %Necesario para facilitar lectura
+
+\geometry{letterpaper,tmargin=1 in,bmargin=1 in,lmargin=1.25 in,rmargin=1.00 in}%
+\singlespacing                                                   %%Espaciado simple %%
+%%\onehalfspacing                                                 %%Espacio y medio %%
+
+\setlength{\captionmargin}{20pt}                                 %%Figuras
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{10pt}
+\vfuzz2pt
+
+\providecommand{\references}{}
+\renewcommand{\references}{\small \bibliographystyle{mybibsty}}  %%Un estilo de citas en español
+\parindent 0cm                                                   %%Párrafos sin sangrias
+\parskip  0.5cm                                                  %%Salto entre párrafos
+\decimalpoint                                                    %%punto como separador decimal
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Esto es para poner Encabezados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markright{\thechapter.\ #1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}{}}
+%%\fancyhead[LO,LE]{\bfseries\rightmark}
+%%\fancyhead[RO,RE]{}
+\fancyhead[L]{\nouppercase{\bfseries\rightmark}}
+\fancyhead[R]{}
+\cfoot{\thepage}
+\headheight 16pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Esto es para NO poner Encabezados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\pagestyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Silabeo
+%%\hyphenation{ge-ne-ra-li-za-da na-tu-ra-le-za de-no-mi-na-dor ve-ro-si-mi-li-tu-des ve-ro-si-mi-li-tud}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %\newtheorem{resultado}{Resultado}[chapter]
+%%\newenvironment{prueba}[1][Prueba]{\textbf{#1} \newline}
+%\newenvironment{prueba}[1][Prueba]{\noindent\textbf{#1} \newline }{\ \rule{0.5em}{0.5em}}
+\newtheorem{defi}{Definición}[chapter]
+\newtheorem{teo}{Teorema}[chapter]
+
+%%Alias para citas
+%\defcitealias{Rsoft}{R}                                        %%R es un alias para Rsoft que se encuentra en referecias.bib
+                                                               %%Al momento de hacer las citas aparecerá R cuando se llame \citetalias{Rsoft}
+%\defcitealias{sn_package}{\bf{sn}}                             %%sn es una alias a sn_package
+
+%\lstset{language=C}
+%-------------Sin que rompa palabras (interlineado)-------
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\begin{document}
+
+\input{portada}
+\input{Consejo}
+\input{Resumen}
+\input{Summary}
+\input{Agradecimientos}
+\input{Dedicatoria}
+
+\renewcommand{\labelitemi}{$\bullet$}                            %%Cambia la etiqueta para el primer nivel de itemize, despliega un circulo sólido
+                                                                 %%Para acceder a otros niveles, usar \labelitemii, \labelitemiii, \labelitemiv
+\renewcommand{\contentsname}{Índice}                             %%Cambia Índice general por Índice de contenido
+\renewcommand{\tablename}{Tabla}                                 %%Cambia la palabra Cuadro que aparece por default por Tabla
+\renewcommand{\listtablename}{Índice de tablas}                  %%Cambia Índice de Cuadros por Índice de Figuras
+\renewcommand{\bibname}{Referencias}                             %%Cambia bibliografía por Referencias
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+\pagenumbering{arabic}
+\setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Referencias
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{\:\,\quad Referencias}
+\references
+\bibliography{biblio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\chapter{Códigos en \texttt{R}}
+\begin{verbatim}
+for(i in 1:10)
+{
+  print(i)
+}
+\end{document}

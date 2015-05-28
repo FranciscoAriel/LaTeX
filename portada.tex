@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Páginas iniciales de la tesis:
+%% Aquí se definen el título de la tesis, el autor de la misma,
+%% así como el título del resumen en inglés.
+%% El logo de la institución se obtiene de una carpeta llamada
+%% figuras en el directorio donde se encuentra ESTE archivo.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\titulo}[1]{\def\eltitulo{#1}}
+\newcommand{\tituloen}[1]{\def\eltituloen{#1}}
+\newcommand{\autor}[1]{\def\elautor{#1}}
+
+\titulo{Título}
+\tituloen{Title}
+\autor{Autor}
+
+\thispagestyle{empty}
+\pagenumbering{roman}
+
+%% Barra izquierda - Escudos
+\hskip-1.5cm
+\begin{minipage}[c][1\totalheight][s]{3cm}
+  \begin{center}
+    \includegraphics[height=2.5cm]{figuras/logo_cp.pdf}\\[10pt]
+    \hskip2pt\vrule width2pt height19.5cm\hskip1mm
+    \vrule width1pt height19.5cm\\[10pt]
+  \end{center}
+\end{minipage}\quad
+%% Barra derecha - Títulos
+\begin{minipage}[c][1\totalheight][s]{13.5cm}
+  \begin{center}
+    % Barra superior
+    {\huge COLEGIO DE POSTGRADUADOS}
+    \vspace{.3cm}
+    \hrule height2pt
+    \vspace{.1cm}
+    \hrule height1pt
+    \vspace{.8cm}
+    {\large INSTITUCIÓN DE ENSEÑANZA E INVESTIGACIÓN\\EN CIENCIAS AGRÍCOLAS}
+
+
+    \vspace{1.5cm}
+    {\large \textbf{CAMPUS MONTECILLO}}
+
+    \vspace{1.5cm}
+    {SOCIOECONOMÍA, ESTADÍSTICA E INFORMÁTICA\\ESTADÍSTICA}
+
+    \vspace{1.5cm}
+    {\large \textbf{\eltitulo}}
+
+    \vspace{1.5cm}
+    {\large \elautor}
+
+    \vspace{1.5cm}
+    {\Large T E S I S}
+
+    \vspace{1.5cm}
+    {\large PRESENTADA COMO REQUISITO PARCIAL}
+    {\large PARA OBTENER EL GRADO DE:}
+
+    \vspace{1.5cm}
+    {\Large MAESTRO EN CIENCIAS}
+
+    \vspace{1.71cm}
+    {\large{MONTECILLO,TEXCOCO, EDO. DE MÉXICO\\2015}}
+    \vspace{0.5cm}
+
+    {\hskip-2.4cm
+       \begin{minipage}[c][1\totalheight][s]{16.5cm}
+         \hrule width15cm height1pt\vskip1mm
+         \hrule width15cm height2pt
+       \end{minipage}
+    }
+  \end{center}
+\end{minipage}
+
+\endinput 
